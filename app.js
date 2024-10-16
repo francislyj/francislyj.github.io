@@ -19,3 +19,15 @@ document.getElementById('yearForm').addEventListener('submit', function(event) {
   const result = isRunNian(year) ? `${year} is a leap year.` : `${year} is not a leap year.`;
   document.getElementById('result').textContent = result;
 });
+
+document.getElementById('changeBgButton').addEventListener('click', function() {
+  const fileInput = document.getElementById('bgInput');
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.body.style.backgroundImage = `url(${e.target.result})`;
+    };
+    reader.readAsDataURL(file);
+  }
+});

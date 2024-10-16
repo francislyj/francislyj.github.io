@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leap Year Checker</title>
+    <title>Perry's Leap Year Checker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('./background11.jpg') no-repeat center center fixed;
+            background: url('background11.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -50,6 +50,9 @@
             font-size: 1.2em;
             color: #333;
         }
+        #bgInput {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +64,8 @@
             <button type="submit">Check</button>
         </form>
         <p id="result"></p>
+        <input type="file" id="bgInput" accept="image/*">
+        <button id="changeBgButton">Change Background</button>
     </div>
     <script src="app.js"></script>
 </body>
