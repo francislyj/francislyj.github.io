@@ -1,21 +1,21 @@
-function add(num1, num2) {
-    return num1 + num2;
+function isRunNian(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function sub(num1, num2) {
-    return num1 - num2;
-}
+document.getElementById('yearForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const year = parseInt(document.getElementById('year').value, 10);
 
-function sayHello(name) {
-    console.log(`Hello${name}`);
-}
+  // Validate the year input
+  if (isNaN(year) || year < 0 || year > 9999) {
+    document.getElementById('result').textContent = 'Please enter a valid year between 0 and 9999.';
+    return;
+  }
 
-function multi(num1, num2) {
-    return num1 * num2;
-}
-
-function divide(num1, num2) {
-    return num1 / num2;
-}
-
-console.log(add(2, 3));
+  const result = isRunNian(year) ? `${year} is a leap year.` : `${year} is not a leap year.`;
+  document.getElementById('result').textContent = result;
+});
