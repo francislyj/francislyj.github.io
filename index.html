@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perry's Leap Year Checker</title>
+    <title>Leap Year Checker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('background11.jpg') no-repeat center center fixed;
+            background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -66,20 +66,37 @@
         .custom-file-upload:hover {
             background-color: #218838;
         }
+        .custom-select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Perry's Leap Year Checker</h1>
+        <h1 id="title">Leap Year Checker</h1>
         <form id="yearForm">
-            <label for="year">Enter a year:</label>
+            <label for="year" id="yearLabel">Enter a year:</label>
             <input type="number" id="year" name="year" value="2000" required>
-            <button type="submit">Check</button>
+            <button type="submit" id="checkButton">Check</button>
         </form>
         <p id="result"></p>
-        <label for="bgInput" class="custom-file-upload">Choose File</label>
+        <label for="bgInput" class="custom-file-upload" id="chooseFileLabel">Choose File</label>
         <input type="file" id="bgInput" accept="image/*">
         <button id="changeBgButton">Change Background</button>
+        <div>
+            <label for="languageSelect" id="languageLabel">Choose Language:</label>
+            <select id="languageSelect" class="custom-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="ta">ไทย</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
