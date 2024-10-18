@@ -6,17 +6,42 @@ function isRunNian(year) {
   }
 }
 
+const messages = {
+  en: {
+    invalidYear: 'Please enter a valid year between 0 and 9999.',
+    leapYear: 'is a leap year.',
+    notLeapYear: 'is not a leap year.'
+  },
+  zh: {
+    invalidYear: '请输入0到9999之间的有效年份。',
+    leapYear: '是闰年。',
+    notLeapYear: '不是闰年。'
+  },
+  ta: {
+    invalidYear: 'โปรดป้อนปีที่ถูกต้องระหว่าง 0 ถึง 9999',
+    leapYear: 'เป็นปีอธิกสุรทิน',
+    notLeapYear: 'ไม่ใช่ปีอธิกสุรทิน'
+  },
+  ja: {
+    invalidYear: '0から9999の間の有効な年を入力してください。',
+    leapYear: 'はうるう年です。',
+    notLeapYear: 'はうるう年ではありません。'
+  }
+};
+
+let currentLanguage = 'en';
+
 document.getElementById('yearForm').addEventListener('submit', function(event) {
   event.preventDefault();
   const year = parseInt(document.getElementById('year').value, 10);
 
   // Validate the year input
   if (isNaN(year) || year < 0 || year > 9999) {
-    document.getElementById('result').textContent = 'Please enter a valid year between 0 and 9999.';
+    document.getElementById('result').textContent = messages[currentLanguage].invalidYear;
     return;
   }
 
-  const result = isRunNian(year) ? `${year} is a leap year.` : `${year} is not a leap year.`;
+  const result = isRunNian(year) ? `${year} ${messages[currentLanguage].leapYear}` : `${year} ${messages[currentLanguage].notLeapYear}`;
   document.getElementById('result').textContent = result;
 });
 
@@ -33,29 +58,29 @@ document.getElementById('changeBgButton').addEventListener('click', function() {
 });
 
 document.getElementById('languageSelect').addEventListener('change', function() {
-  const language = document.getElementById('languageSelect').value;
-  if (language === 'en') {
+  currentLanguage = document.getElementById('languageSelect').value;
+  if (currentLanguage === 'en') {
     document.getElementById('title').textContent = "Leap Year Checker";
     document.getElementById('yearLabel').textContent = 'Enter a year:';
     document.getElementById('checkButton').textContent = 'Check';
     document.getElementById('chooseFileLabel').textContent = 'Choose File';
     document.getElementById('changeBgButton').textContent = 'Change Background';
     document.getElementById('languageLabel').textContent = 'Choose Language:';
-  } else if (language === 'zh') {
+  } else if (currentLanguage === 'zh') {
     document.getElementById('title').textContent = '闰年检查器';
     document.getElementById('yearLabel').textContent = '输入年份:';
     document.getElementById('checkButton').textContent = '检查';
     document.getElementById('chooseFileLabel').textContent = '选择文件';
     document.getElementById('changeBgButton').textContent = '更改背景';
     document.getElementById('languageLabel').textContent = '选择语言:';
-  } else if (language === 'ta') {
+  } else if (currentLanguage === 'ta') {
     document.getElementById('title').textContent = 'ตัวตรวจสอบปีอธิกสุรทิน';
     document.getElementById('yearLabel').textContent = 'ป้อนปี:';
     document.getElementById('checkButton').textContent = 'ตรวจสอบ';
     document.getElementById('chooseFileLabel').textContent = 'เลือกไฟล์';
     document.getElementById('changeBgButton').textContent = 'เปลี่ยนพื้นหลัง';
     document.getElementById('languageLabel').textContent = 'เลือกภาษา:';
-  } else if (language === 'ja') {
+  } else if (currentLanguage === 'ja') {
     document.getElementById('title').textContent = 'うるう年チェッカー';
     document.getElementById('yearLabel').textContent = '年を入力:';
     document.getElementById('checkButton').textContent = 'チェック';
