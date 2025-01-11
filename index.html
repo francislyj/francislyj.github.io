@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>贪吃蛇游戏</title>
-    <link rel="stylesheet" href="style.css">
+    <title>导航页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        a {
+            display: block;
+            margin: 20px;
+            font-size: 24px;
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-    <div class="game-container">
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div class="controls">
-            <button id="startButton">开始游戏</button>
-            <button id="settingsButton">设置</button>
-            <input type="file" id="upload" accept="image/*" style="display:none;">
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <h1>欢迎来到导航页</h1>
+    <a href="snake/snake.html">贪吃蛇游戏</a>
+    <a href="year/year.html">Year 应用</a>
 </body>
-</html> 
+</html>
