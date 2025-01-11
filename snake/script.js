@@ -41,10 +41,16 @@ const startButton = document.getElementById('startButton');
 const settingsButton = document.getElementById('settingsButton');
 const uploadInput = document.getElementById('upload');
 let headImage = null;
+const gameOverPopup = document.getElementById('gameOverPopup');
+const restartButton = document.getElementById('restartButton');
 
 startButton.addEventListener('click', startGame);
 settingsButton.addEventListener('click', () => uploadInput.click());
 uploadInput.addEventListener('change', handleImageUpload);
+restartButton.addEventListener('click', () => {
+    gameOverPopup.style.display = 'none';
+    startGame();
+});
 
 function handleImageUpload(event) {
     const file = event.target.files[0];
@@ -63,6 +69,7 @@ function handleImageUpload(event) {
 
 function startGame() {
     startButton.style.display = 'none';
+    gameOverPopup.style.display = 'none';
     clearInterval(game);
     snake = [];
     snake[0] = { x: 9 * box, y: 10 * box };
@@ -132,6 +139,7 @@ function draw() {
     if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
         clearInterval(game);
         startButton.style.display = 'block';
+        gameOverPopup.style.display = 'block';
     }
 
     snake.unshift(newHead);
