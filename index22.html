@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 1.2em;
+            color: #333;
+        }
+        #bgInput {
+            display: none;
+        }
+        .custom-file-upload {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .custom-file-upload:hover {
+            background-color: #218838;
+        }
+        .custom-select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Leap Year Checker</h1>
+        <form id="yearForm">
+            <label for="year" id="yearLabel">Enter a year:</label>
+            <input type="number" id="year" name="year" value="2000" required>
+            <button type="submit" id="checkButton">Check</button>
+        </form>
+        <p id="result"></p>
+        <label for="bgInput" class="custom-file-upload" id="chooseFileLabel">Choose File</label>
+        <input type="file" id="bgInput" accept="image/*">
+        <button id="changeBgButton">Change Background</button>
+        <div>
+            <label for="languageSelect" id="languageLabel">Choose Language:</label>
+            <select id="languageSelect" class="custom-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="ta">ไทย</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
